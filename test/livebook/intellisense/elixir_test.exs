@@ -334,20 +334,20 @@ defmodule Livebook.Intellisense.ElixirTest do
       assert %{
                items: [
                  %{
-                   label: "internal/1",
+                   label: "ref/0",
                    kind: :type,
                    documentation: """
-                   No documentation available
+                   The task opaque reference.
 
                    ```
-                   @opaque internal(value)
+                   @opaque ref()
                    ```\
                    """,
-                   insert_text: "internal(${})"
+                   insert_text: "ref()"
                  }
                ]
              } =
-               Intellisense.Elixir.handle_request({:completion, "MapSet.intern"}, context, node())
+               Intellisense.Elixir.handle_request({:completion, "Task.re"}, context, node())
     end
 
     test "Elixir module completion with self" do
@@ -1867,12 +1867,12 @@ defmodule Livebook.Intellisense.ElixirTest do
       # opaque types are listed without internal definition
       assert %{contents: [type]} =
                Intellisense.Elixir.handle_request(
-                 {:details, "MapSet.internal", 10},
+                 {:details, "Task.ref", 7},
                  context,
                  node()
                )
 
-      assert type =~ "@opaque internal(value)\n"
+      assert type =~ "@opaque ref()\n"
     end
 
     @tag :erl_docs
