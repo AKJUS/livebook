@@ -53,7 +53,7 @@ defmodule Livebook.Text.JS do
   @spec split_at(String.t(), non_neg_integer()) :: {String.t(), String.t()}
   def split_at(string, position) do
     offset = byte_offset(string, position)
-    <<left::binary-size(offset), right::binary>> = string
+    <<left::binary-size(^offset), right::binary>> = string
     {left, right}
   end
 

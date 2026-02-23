@@ -809,7 +809,7 @@ defmodule Livebook.Intellisense.Elixir.IdentifierMatcher do
 
       parts ->
         {start, length} = List.last(parts)
-        <<left::binary-size(start), _::binary-size(length), right::binary>> = string
+        <<left::binary-size(^start), _::binary-size(^length), right::binary>> = string
         {:ok, left, right}
     end
   end

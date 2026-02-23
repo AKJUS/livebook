@@ -569,7 +569,7 @@ defmodule Livebook.Utils do
 
       parts ->
         {start, length} = List.last(parts)
-        <<left::binary-size(start), _::binary-size(length), right::binary>> = string
+        <<left::binary-size(^start), _::binary-size(^length), right::binary>> = string
         {:ok, left, right}
     end
   end
@@ -634,7 +634,7 @@ defmodule Livebook.Utils do
         text
 
       {pos, _len} ->
-        <<_ignore::binary-size(pos), rest::binary>> = text
+        <<_ignore::binary-size(^pos), rest::binary>> = text
         "..." <> rest
     end
   end

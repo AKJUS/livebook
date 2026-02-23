@@ -345,7 +345,7 @@ defimpl Livebook.FileSystem, for: Livebook.FileSystem.S3 do
   end
 
   defp upload_part_from_state(file_system, state, part_size) do
-    <<part::binary-size(part_size), rest::binary>> =
+    <<part::binary-size(^part_size), rest::binary>> =
       state.current_chunks
       |> Enum.reverse()
       |> IO.iodata_to_binary()
