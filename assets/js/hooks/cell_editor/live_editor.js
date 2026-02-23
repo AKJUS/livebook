@@ -337,6 +337,18 @@ export default class LiveEditor {
       { key: "Alt-Enter", run: insertBlankLineAndCloseHints },
     ];
 
+    // The VSCode keymap handles these keys, but if already at the
+    // start/end of line/editor the command is not applied and the
+    // browser moves the page as per the default behaviour. This can
+    // be disruptive, so we add a catch-all for these keys and ignore
+    // them.
+    const ignoreKeymap = [
+      { key: "Home", run: () => true },
+      { key: "End", run: () => true },
+      { key: "PageUp", run: () => true },
+      { key: "PageDown", run: () => true },
+    ];
+
     const selectionChangeListener = EditorView.updateListener.of((update) =>
       this.handleViewUpdate(update),
     );
@@ -368,6 +380,7 @@ export default class LiveEditor {
         readOnlyHint(),
         keymap.of(customKeymap),
         keymap.of(vscodeKeymap),
+        keymap.of(ignoreKeymap),
         EditorState.tabSize.of(2),
         EditorState.lineSeparator.of("\n"),
         // We bind tab to actions within the editor, which would trap
