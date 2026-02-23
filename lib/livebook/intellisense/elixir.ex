@@ -523,8 +523,8 @@ defmodule Livebook.Intellisense.Elixir do
       is_otp? ->
         hash =
           case function_or_type do
-            {:function, function, arity} -> "##{function}-#{arity}"
-            {:type, type, _arity} -> "#type-#{type}"
+            {:function, function, arity} -> "##{function}/#{arity}"
+            {:type, type, _arity} -> "#type/#{type}"
             nil -> ""
           end
 

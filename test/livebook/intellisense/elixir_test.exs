@@ -1924,7 +1924,7 @@ defmodule Livebook.Intellisense.ElixirTest do
                  node()
                )
 
-      assert content =~ ~r"https://www.erlang.org/doc/man/code.html#type-load_ret"
+      assert content =~ ~r"https://www.erlang.org/doc/man/code.html#type/load_ret"
 
       # test erlang modules on hexdocs
       assert %{contents: [content]} =
@@ -1949,13 +1949,13 @@ defmodule Livebook.Intellisense.ElixirTest do
                  node()
                )
 
-      assert content =~ ~r"https://www.erlang.org/doc/man/code.html#load_binary-3"
+      assert content =~ ~r"https://www.erlang.org/doc/man/code.html#load_binary/3"
 
       # test erlang modules
       assert %{contents: [content]} =
                Intellisense.Elixir.handle_request({:details, ":atomics.new", 11}, context, node())
 
-      assert content =~ ~r"https://www.erlang.org/doc/man/atomics.html#new-2"
+      assert content =~ ~r"https://www.erlang.org/doc/man/atomics.html#new/2"
 
       assert %{contents: [content]} =
                Intellisense.Elixir.handle_request(
@@ -1964,7 +1964,7 @@ defmodule Livebook.Intellisense.ElixirTest do
                  node()
                )
 
-      assert content =~ ~r"https://www.erlang.org/doc/man/string.html#uppercase-1"
+      assert content =~ ~r"https://www.erlang.org/doc/man/string.html#uppercase/1"
     end
 
     @tag :tmp_dir
