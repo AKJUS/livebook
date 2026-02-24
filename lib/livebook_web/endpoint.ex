@@ -36,7 +36,8 @@ defmodule LivebookWeb.Endpoint do
   plug Plug.Static,
     at: "/",
     from: {__MODULE__, :static_from, []},
-    gzip: not code_reloading?,
+    # The static files are always gzipped.
+    gzip: true,
     only: LivebookWeb.static_paths()
 
   @doc false
