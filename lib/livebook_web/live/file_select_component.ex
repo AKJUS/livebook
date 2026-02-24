@@ -238,7 +238,7 @@ defmodule LivebookWeb.FileSelectComponent do
 
           <div
             :if={@uploads.folder.entries != []}
-            class="border-b border-dashed border-grey-200 mb-2 pb-2"
+            class="border-b border-dashed border-gray-200 mb-2 pb-2"
           >
             <div :for={file <- @uploads.folder.entries} class="p-2 flex gap-2 items-center">
               <.spinner />
@@ -252,7 +252,7 @@ defmodule LivebookWeb.FileSelectComponent do
 
           <.file_infos
             id={@id}
-            class="grid grid-cols-2 lg:grid-cols-3 gap-2 border-b border-dashed border-grey-200 mb-2 pb-2"
+            class="grid grid-cols-2 lg:grid-cols-3 gap-2 border-b border-dashed border-gray-200 mb-2 pb-2"
             file_infos={@highlighted_file_infos}
             myself={@myself}
             renaming_file={@renaming_file}
@@ -276,7 +276,7 @@ defmodule LivebookWeb.FileSelectComponent do
   defp new_item_section(assigns) do
     ~H"""
     <div
-      class="hidden grid grid-cols-2 lg:grid-cols-3 gap-2 border-b border-dashed border-grey-200 mb-2 pb-2"
+      class="hidden grid grid-cols-2 lg:grid-cols-3 gap-2 border-b border-dashed border-gray-200 mb-2 pb-2"
       id={@id}
     >
       <form
