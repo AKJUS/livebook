@@ -49,7 +49,7 @@ defmodule LivebookWeb.SessionLive.PackageSearchComponent do
         />
       </form>
       <div class={[
-        "flex flex-col divide-y h-80 pr-2 -mr-2 overflow-y-auto tiny-scrollbar",
+        "flex flex-col divide-y divide-gray-200 h-80 pr-2 -mr-2 overflow-y-auto tiny-scrollbar",
         if(@packages.loading, do: "opacity-30 transition-opacity duration-300")
       ]}>
         <.async_result :let={packages} assign={@packages}>
