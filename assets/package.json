@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "vite build",
-    "dev": "vite dev",
+    "dev": "WATCH_STDIN=1 vite",
     "format": "prettier --write '{js,test,css}/**/*.{js,json,css,md}' '*.js' --no-error-on-unmatched-pattern --log-level warn",
     "format-check": "prettier --check '{js,test,css}/**/*.{js,json,css,md}' '*.js' --no-error-on-unmatched-pattern --log-level warn",
     "test": "vitest"
