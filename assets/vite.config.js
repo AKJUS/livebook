@@ -34,9 +34,6 @@ export default defineConfig({
   server: {
     port: 4432,
     origin: "http://localhost:4432",
-    cors: {
-      origin: ["http://localhost:4000"],
-    },
   },
 });
 
